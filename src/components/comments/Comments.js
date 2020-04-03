@@ -1,14 +1,41 @@
-import React from 'react';
-// import Moment from 'react-moment';
-// import commentItem from 'react';
-import CommentItem from './CommentItem'
+import React, { useState, useEffect } from 'react';
 
-const Comments = ( journal ) => {
+export const Comments = ({ journal }) => {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getComments();
+    //eslint-disable-next-line
+  }, []);
+
+  const getComments = async id => {
+    setLoading(true);
+    const res = await fetch(`/comments`);
+    const data = await res.json();
+
+    setComments(data);
+    setLoading(false);
+  };
+
   return (
-    <li>      
-     <CommentItem journal={journal} key={journal.id} />
-    </li>
-  )
+    <div>
+      <ul>
+        {!loading && comments.length === 0 ? (
+          <p>No comments to show...</p>
+        ) : (
+          comments.map(comment => <li>{comment.journalId}</li>)
+        )}
+        {/* {comments.map(comment =>
+          journal.id === comment.journalId ? (
+            <li>{comment.text}</li>
+          ) : (
+            <p>No comments to show...</p>
+          )
+        )} */}
+      </ul>
+    </div>
+  );
 };
-export default Comments;
 
+export default Comments;

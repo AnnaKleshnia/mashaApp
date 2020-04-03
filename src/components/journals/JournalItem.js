@@ -1,17 +1,39 @@
-import React from 'react';
-import Comments from '../comments/Comments'
+import React, { useState, useEffect } from 'react';
+import Journals from './Journals';
+// import Comments from '../comments/Comments';
 
-
- 
 const JournalItem = ({ journal }) => {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getComments(journal.id);
+    //eslint-disable-next-line
+  }, []);
+
+  const getComments = async id => {
+    setLoading(true);
+    const res = await fetch(`journal/${id}/comments`);
+    const data = await res.json();
+
+    setComments(data);
+    setLoading(false);
+  };
 
   return (
-      <li>
-      <h4>{journal.title}</h4>
+    <li>
+      <h3>{journal.title}</h3>
       <ul>
-        {journal.comments.map(comment => <Comments key={comment.id} comment={comment}  />) }
+        <li>
+          {!loading && comments.length === 0 ? (
+            <p>No comments to show...</p>
+          ) : (
+            comments.map(comment => <li>{comment.text}</li>)
+          )}
+        </li>
       </ul>
-      </li>
-  )
+    </li>
+  );
 };
+
 export default JournalItem;

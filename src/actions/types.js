@@ -1,7 +1,0 @@
-export const SET_LOADING = 'SET_LOADING';
-export const GET_JOURNALS = 'GET_LOURNALS';
-export const JOURNALS_ERROR = "JOURNALS_ERROR";
-export const SEND_COMMENT = "SEND_COMMENT";
-export const SET_CURRENT = "SET_CURRENT";
-export const CLEAR_CURRENT = "CLEAR_CURRENT";
-export const COMMENT_ERROR = "COMMENT_ERROR";

@@ -3,76 +3,73 @@
     {
       "id": 1,
       "title": "Ajournal",
-      "issn": "123NO",
-      "comments": [
-        {
-          "id": 1,
-          "text": "This is the best journal ever. Let's put it on the first level.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quis adipisci amet velit iusto delectus voluptate, nobis repudiandae possimus consequuntur.",
-          "journalId": 1,
-          "isTruncated": true,
-          "author": "Emmanuil Kant",
-          "attention": true,
-          "date": "10-03-20"
-        },
-        {
-          "id": 2,
-          "text": "This is the worst journal ever. We must burn it!",
-          "journalId": 1,
-          "isTruncated": true,
-          "author": "Jan-Poul Sartr",
-          "attention": false,
-          "date": "09-09-20"
-        }
-      ]
+      "issn": "123NO"
     },
     {
       "id": 2,
       "title": "Bjournal",
-      "issn": "456NO",
-      "comments": [
-        {
-          "id": 1,
-          "text": "This is a very good journal. Level one yeeees!",
-          "journalId": 2,
-          "isTruncated": true,
-          "author": "Jan-Poul Sartr",
-          "attention": false,
-          "date": "11-03-20"
-        },
-        {
-          "id": 2,
-          "text": "Very very bad. Burn, trample or send to level two",
-          "journalId": 2,
-          "isTruncated": true,
-          "author": "Jan-Poul Sartr",
-          "attention": false,
-          "date": "12-03-20"
-        },
-        {
-          "id": 2,
-          "text": "Text is shit, author is full. Level two forever",
-          "journalId": 2,
-          "isTruncated": true,
-          "author": "Jan-Poul Sartr",
-          "attention": false,
-          "date": "05-06-20"
-        }
-      ]
+      "issn": "456NO"
     },
     {
       "id": 3,
       "title": "Cjournal",
-      "issn": "789NO",
-      "comments": [
-        {
-          "id": 3,
-          "text": "This is just a journal. Everyone will forget about it in a year.",
-          "isTruncated": true,
-          "author": "John Doe",
-          "attention": false,
-          "date": "12-13-20"
-        }
-      ]
+      "issn": "789NO"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "text": "This is the best journal ever. Let's put it on the first level.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quis adipisci amet velit iusto delectus voluptate, nobis repudiandae possimus consequuntur.",
+      "journalId": 1,
+      "isTruncated": true,
+      "author": "Emmanuil Kant",
+      "attention": true,
+      "date": "10-03-20"
+    },
+    {
+      "id": 2,
+      "text": "This is the worst journal ever. We must burn it!",
+      "journalId": 1,
+      "isTruncated": true,
+      "author": "Jan-Poul Sartr",
+      "attention": false,
+      "date": "09-09-20"
+    },
+    {
+      "id": 3,
+      "text": "This is a very good journal. Level one yeeees!",
+      "journalId": 2,
+      "isTruncated": true,
+      "author": "Jan-Poul Sartr",
+      "attention": false,
+      "date": "11-03-20"
+    },
+    {
+      "id": 4,
+      "text": "Very very bad. Burn, trample or send to level two",
+      "journalId": 2,
+      "isTruncated": true,
+      "author": "Jan-Poul Sartr",
+      "attention": false,
+      "date": "12-03-20"
+    },
+    {
+      "id": 5,
+      "text": "Text is shit, author is full. Level two forever",
+      "journalId": 2,
+      "isTruncated": true,
+      "author": "Jan-Poul Sartr",
+      "attention": false,
+      "date": "05-06-20"
+    },
+    {
+      "id": 6,
+      "text": "This is just a journal. Everyone will forget about it in a year.",
+      "journalId": 3,
+      "isTruncated": true,
+      "author": "John Doe",
+      "attention": false,
+      "date": "12-13-20"
     }
   ]
 }
