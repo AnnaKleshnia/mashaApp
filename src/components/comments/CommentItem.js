@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
-import { connect } from 'react-redux';
-import { setCurrent } from "../../actions/commentActions";
+// import { connect } from 'react-redux';
+// import { setCurrent } from "../../actions/commentActions";
 
- const CommentItem = ( {journal, comment, setCurrent} ) => {
+ const CommentItem = ( {comment} ) => {
    const [attention, setAttention] = useState(false);
   const [isTruncated, setIsTruncated] = useState(true);
   
-     const commentText =`${journal.comment.text }`
+     const commentText =`${comment.text }`
   
                        
      const resultCommentText = isTruncated ? commentText.slice(0, 30) : commentText;
@@ -18,18 +18,17 @@ import { setCurrent } from "../../actions/commentActions";
 
      const onChange =(e) => {
        setAttention(!attention);
-       setCurrent(comment)
      }
   return (
-    <div>
+    <li>
       <div className="row">
     <div className="col s12 m4">
-      <div className={`card ${journal.comment.attention ? 'blue-grey lighten-2' : "blue-grey darken-1"}`} > 
+      <div className={`card ${comment.attention ? 'blue-grey lighten-2' : "blue-grey darken-1"}`} > 
         <div className="card-content grey-text text-lighten-2">
           <p> {resultCommentText}
       <span className="read-more" onClick={toggleIsTruncated}>{isTruncated ?  "...more" : "...less"}</span></p>
-          <p className={isTruncated ? "hide" : "show"}>{journal.comment.author}</p>
-          <span className= {isTruncated ? "hide" : "show"}><Moment format='MMMM Do YYYY'>{journal.comment.date}</Moment></span>
+          <p className={isTruncated ? "hide" : "show"}>{comment.author}</p>
+          <span className= {isTruncated ? "hide" : "show"}><Moment format='MMMM Do YYYY'>{comment.date}</Moment></span>
           <p className={isTruncated ? "hide" : "show"}>
             <label>
                <input type="checkbox" className="filled-in" chacked={attention}  value={attention} onChange={onChange}/>
@@ -40,8 +39,8 @@ import { setCurrent } from "../../actions/commentActions";
       </div>
     </div>
   </div>
-    </div>
+    </li>
   )
 }
 
-export default connect(null, { setCurrent}) (CommentItem);
+export default CommentItem;

@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import Journals from './Journals';
-// import Comments from '../comments/Comments';
+import { connect } from 'react-redux';
+import CommentItem from '../comments/CommentItem';
+import { getComments } from '../../actions/commentActions';
 
-const JournalItem = ({ journal }) => {
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(false);
+
+
+const JournalItem = ({journal, comment:{comments, loading}, getComments}) => {
+  // const [comments, setComments] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getComments(journal.id);
     //eslint-disable-next-line
   }, []);
 
-  const getComments = async id => {
-    setLoading(true);
-    const res = await fetch(`journal/${id}/comments`);
-    const data = await res.json();
+  // const getComments = async id => {
+  //   setLoading(true);
+  //   const res = await fetch(`journal/${id}/comments`);
+  //   const data = await res.json();
 
-    setComments(data);
-    setLoading(false);
-  };
+  //   setComments(data);
+  //   setLoading(false);
+  // };
+   if(loading || comments === null) {
+     return(<h4>Loading...</h4>)   
+   }
 
   return (
     <li>
@@ -28,7 +34,9 @@ const JournalItem = ({ journal }) => {
           {!loading && comments.length === 0 ? (
             <p>No comments to show...</p>
           ) : (
-            comments.map(comment => <li>{comment.text}</li>)
+            comments.map(comment =>
+            <CommentItem  comment={comment}/>
+            )
           )}
         </li>
       </ul>
@@ -36,4 +44,8 @@ const JournalItem = ({ journal }) => {
   );
 };
 
-export default JournalItem;
+const mapStateToProps = state => ({
+  comment: state.comment
+})
+
+export default connect(mapStateToProps, { getComments })(JournalItem);
