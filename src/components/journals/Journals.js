@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
   journal: state.journal
 })
 
-export default connect(mapStateToProps, { getJournals })(Journals);
+export default connect(mapStateToProps, { getJournals})(Journals);

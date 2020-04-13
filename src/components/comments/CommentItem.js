@@ -20,7 +20,7 @@ import Moment from 'react-moment';
        setAttention(!attention);
      }
   return (
-    <li>
+    <div>
       <div className="row">
     <div className="col s12 m4">
       <div className={`card ${comment.attention ? 'blue-grey lighten-2' : "blue-grey darken-1"}`} > 
@@ -31,7 +31,7 @@ import Moment from 'react-moment';
           <span className= {isTruncated ? "hide" : "show"}><Moment format='MMMM Do YYYY'>{comment.date}</Moment></span>
           <p className={isTruncated ? "hide" : "show"}>
             <label>
-               <input type="checkbox" className="filled-in" chacked={attention}  value={attention} onChange={onChange}/>
+               <input type="checkbox" className="filled-in" checked={attention}  value={attention} onChange={onChange}/>
                <span>Send to ...</span>
             </label>
           </p>
@@ -39,7 +39,7 @@ import Moment from 'react-moment';
       </div>
     </div>
   </div>
-    </li>
+    </div>
   )
 }
 

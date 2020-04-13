@@ -4,7 +4,7 @@ export const getComments = (id) => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch(`journal/${id}/comments`);
+    const res = await fetch(`/journals/${id}/comments`);
     const data = await res.json();
 
     dispatch({
